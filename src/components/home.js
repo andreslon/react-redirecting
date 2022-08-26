@@ -49,8 +49,9 @@ export default function CustomizedList() {
               Legendary Player
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              To obtain the third key you must enter the key that you have
-              solved in the acrostic and we will redirect you to the final form.
+              Hi knight, welcome to the last challenge... to finish, you need
+              the final code and only knowing about Team International you will
+              get it
             </Typography>
           </Box>
 
@@ -77,7 +78,7 @@ export default function CustomizedList() {
             >
               <InputBase
                 sx={{ ml: 1, flex: 1 }}
-                placeholder="Write acrostic result to find the last key"
+                placeholder="Insert code here"
                 inputProps={{ "aria-label": "acrostic" }}
                 value={code}
                 onChange={handleChange}
@@ -113,12 +114,13 @@ export default function CustomizedList() {
               </IconButton>
             </Paper>
           </Box>
-          {error && <Alert severity="error">Invalid acrostic result</Alert>}
+          {error && <Alert severity="error">Invalid acrostic code</Alert>}
 
           <Divider />
 
           <div>
-            <iframe title="Legendary Player"
+            <iframe
+              title="Legendary Player"
               src="https://puzzel.org/en/acrostic/embed?p=-NANh25vr8oPZegnT1kq"
               width="100%"
               height="800"
