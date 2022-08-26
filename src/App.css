@@ -1,3 +1,10 @@
 .App-bg {
   width: 100%;
 }
+
+
+.App-key {
+  height: 30px;
+  margin: 0 auto;
+  text-align: center;
+}

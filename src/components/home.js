@@ -11,7 +11,22 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import Alert from "@mui/material/Alert";
 
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Slide from "@mui/material/Slide";
+
 import background from "./../bg.png";
+import key from "./../key.gif";
+import Container from '@mui/material/Container';
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
 const FireNav = styled(List)({
   "& .MuiListItemButton-root": {
     paddingLeft: 24,
@@ -32,6 +47,13 @@ export default function CustomizedList() {
   const handleChange = (event) => {
     setCode(event.target.value);
   };
+
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    window.location.replace("https://forms.gle/fqkrF1uxHogH1Mw58");
+    setOpen(false);
+  };
+
   return (
     <Box>
       <Paper sx={{ width: "100%", marginBottom: 10 }}>
@@ -97,9 +119,7 @@ export default function CustomizedList() {
                       .join("");
 
                     if (strVal === code) {
-                      window.location.replace(
-                        "https://forms.gle/fqkrF1uxHogH1Mw58"
-                      );
+                      setOpen(true);
                       setError(false);
                     } else {
                       setError(true);
@@ -114,7 +134,7 @@ export default function CustomizedList() {
               </IconButton>
             </Paper>
           </Box>
-          {error && <Alert severity="error">Invalid acrostic code</Alert>}
+          {error && <Alert severity="error">Invalid Code</Alert>}
 
           <Divider />
 
@@ -129,6 +149,29 @@ export default function CustomizedList() {
           </div>
         </FireNav>
       </Paper>
+
+      <Dialog
+        open={open}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle>Congrats!</DialogTitle>
+        <DialogContent>
+          <Container maxWidth="sm">
+            <img src={key} className="App-key" alt="Legendary Player" />
+          </Container>
+
+          <DialogContentText id="alert-dialog-slide-description">
+            You are a real Team International Warrior, Thanks for playing our
+            game
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Continue</Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }
