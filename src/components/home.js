@@ -7,6 +7,8 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import Typography from "@mui/material/Typography";
+
 import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
@@ -46,6 +48,7 @@ const FireNav = styled(List)({
 
 export default function CustomizedList() {
   const [open, setOpen] = React.useState(true);
+
   return (
     <Box sx={{ display: "flex" }}>
       <ThemeProvider
@@ -64,63 +67,30 @@ export default function CustomizedList() {
           <FireNav component="nav" disablePadding>
             <img src={background} className="App-bg" alt="Legendary Player" />
             <Divider />
-            <ListItem component="div" disablePadding>
-              <ListItemButton sx={{ height: 56 }}>
-                <ListItemIcon>
-                  <Home color="primary" />
-                </ListItemIcon>
-                <ListItemText
-                  primary="Project Overview"
-                  primaryTypographyProps={{
-                    color: "primary",
-                    fontWeight: "medium",
-                    variant: "body2",
-                  }}
-                />
-              </ListItemButton>
-              <Tooltip title="Project Settings">
-                <IconButton
-                  size="large"
-                  sx={{
-                    "& svg": {
-                      color: "rgba(255,255,255,0.8)",
-                      transition: "0.2s",
-                      transform: "translateX(0) rotate(0)",
-                    },
-                    "&:hover, &:focus": {
-                      bgcolor: "unset",
-                      "& svg:first-of-type": {
-                        transform: "translateX(-4px) rotate(-20deg)",
-                      },
-                      "& svg:last-of-type": {
-                        right: 0,
-                        opacity: 1,
-                      },
-                    },
-                    "&:after": {
-                      content: '""',
-                      position: "absolute",
-                      height: "80%",
-                      display: "block",
-                      left: 0,
-                      width: "1px",
-                      bgcolor: "divider",
-                    },
-                  }}
-                >
-                  <Settings />
-                  <ArrowRight
-                    sx={{ position: "absolute", right: 4, opacity: 0 }}
-                  />
-                </IconButton>
-              </Tooltip>
-            </ListItem>
+            <Box
+              sx={{
+                pb: open ? 2 : 0,
+                p: "10px",
+                alignItems: "center",
+              }}
+            >
+              <Typography gutterBottom variant="h5" component="div">
+                Legendary Player
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                To obtain the third key you must enter the key that you have
+                solved in the acrostic and we will redirect you to the final
+                form.
+              </Typography>
+            </Box>
+
             <Divider />
             <Box
               sx={{
                 bgcolor: open ? "rgba(71, 98, 130, 0.2)" : null,
                 pb: open ? 2 : 0,
-                p: "10px",  alignItems: "center",
+                p: "10px",
+                alignItems: "center",
               }}
             >
               <Paper
@@ -130,19 +100,18 @@ export default function CustomizedList() {
                   display: "flex",
                   alignItems: "center",
                   width: "80%",
-                  margin: '0 auto'
+                  margin: "0 auto",
                 }}
               >
                 <InputBase
                   sx={{ ml: 1, flex: 1 }}
-                  placeholder="Write acrostic Result to find last key :D"
+                  placeholder="Write acrostic result to find the last key"
                   inputProps={{ "aria-label": "acrostic" }}
                 />
                 <IconButton
                   type="button"
                   sx={{ p: "10px" }}
-                  aria-label="search"
-                >
+                  aria-label="search" >
                   <SearchIcon />
                 </IconButton>
               </Paper>
