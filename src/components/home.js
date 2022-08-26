@@ -1,38 +1,17 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import { styled, ThemeProvider, createTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 
 import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
-import ArrowRight from "@mui/icons-material/ArrowRight";
-import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
-import Home from "@mui/icons-material/Home";
-import Settings from "@mui/icons-material/Settings";
-import People from "@mui/icons-material/People";
-import PermMedia from "@mui/icons-material/PermMedia";
-import Dns from "@mui/icons-material/Dns";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import Alert from "@mui/material/Alert";
 
-import Public from "@mui/icons-material/Public";
-import background from "./../bg.png";
-
-const data = [
-  { icon: <People />, label: "Authentication" },
-  { icon: <Dns />, label: "Database" },
-  { icon: <PermMedia />, label: "Storage" },
-  { icon: <Public />, label: "Hosting" },
-];
-
+import background from "./../bg.png"; 
 const FireNav = styled(List)({
   "& .MuiListItemButton-root": {
     paddingLeft: 24,
@@ -117,7 +96,7 @@ export default function CustomizedList() {
                       .map((l) => String.fromCharCode(parseInt(l, 2)))
                       .join("");
 
-                    if (strVal == code) {
+                    if (strVal === code) {
                       window.location.replace(
                         "https://forms.gle/fqkrF1uxHogH1Mw58"
                       );
