@@ -11,7 +11,7 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import Alert from "@mui/material/Alert";
 
-import background from "./../bg.png"; 
+import background from "./../bg.png";
 const FireNav = styled(List)({
   "& .MuiListItemButton-root": {
     paddingLeft: 24,
@@ -34,7 +34,7 @@ export default function CustomizedList() {
   };
   return (
     <Box>
-      <Paper sx={{ width: "100%" }}>
+      <Paper sx={{ width: "100%", marginBottom: 10 }}>
         <FireNav component="nav" disablePadding>
           <img src={background} className="App-bg" alt="Legendary Player" />
           <Divider />
@@ -55,10 +55,9 @@ export default function CustomizedList() {
           </Box>
 
           <Divider />
-
           <Box
             sx={{
-              bgcolor: "rgba(71, 98, 130, 0.2)",
+              bgcolor: "#01DF07",
               pb: 2,
               p: "10px",
               alignItems: "center",
@@ -115,6 +114,17 @@ export default function CustomizedList() {
             </Paper>
           </Box>
           {error && <Alert severity="error">Invalid acrostic result</Alert>}
+
+          <Divider />
+
+          <div>
+            <iframe
+              src="https://puzzel.org/en/acrostic/embed?p=-NANh25vr8oPZegnT1kq"
+              width="100%"
+              height="800"
+              frameborder="0"
+            ></iframe>
+          </div>
         </FireNav>
       </Paper>
     </Box>
