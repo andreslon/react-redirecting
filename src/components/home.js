@@ -118,7 +118,7 @@ export default function CustomizedList() {
           <Divider />
 
           <div>
-            <iframe
+            <iframe title="Legendary Player"
               src="https://puzzel.org/en/acrostic/embed?p=-NANh25vr8oPZegnT1kq"
               width="100%"
               height="800"
